@@ -1,0 +1,116 @@
+root@vm:~/lessons/final/task-04# kubectl create deploy flask-application --image nvrbckdown/flask-app:last-practice --port 5000 --replicas 1 --dry-run=client -o yaml > flask-app.yaml
+root@vm:~/lessons/final/task-04# kubectl apply -f flask-app.yaml -n farhod
+deployment.apps/flask-application created
+root@vm:~/lessons/final/task-04# kubectl get deploy -n farhod
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+flask-application   2/2     2            2           18s
+root@vm:~/lessons/final/task-04# kubectl describe pod flask-application -n farhod
+Name:             flask-application-85cdcfdb77-6fhrk
+Namespace:        farhod
+Priority:         0
+Service Account:  default
+Node:             node3/65.109.139.39
+Start Time:       Mon, 12 Feb 2024 15:08:32 +0000
+Labels:           app=flask-application
+                  pod-template-hash=85cdcfdb77
+Annotations:      cni.projectcalico.org/containerID: 1185fa6528f59f6655a202b3a11e89d45a501079a79413c95216d898f2c5b48f
+                  cni.projectcalico.org/podIP: 10.233.67.184/32
+                  cni.projectcalico.org/podIPs: 10.233.67.184/32
+Status:           Running
+IP:               10.233.67.184
+IPs:
+  IP:           10.233.67.184
+Controlled By:  ReplicaSet/flask-application-85cdcfdb77
+Containers:
+  flask-application:
+    Container ID:   containerd://b3658962821d2e3f29b3768e5ffb562a3a0b7c64d0e3d827ea6989e88f85990c
+    Image:          nvrbckdown/flask-app:last-practice
+    Image ID:       docker.io/nvrbckdown/flask-app@sha256:ea3b5d9da60442d4d12a2fc0c02d993e836acc8df83e0b18035745a2eddc5510
+    Port:           5000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 12 Feb 2024 15:08:33 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-nrwcr (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-nrwcr:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  3m34s  default-scheduler  Successfully assigned farhod/flask-application-85cdcfdb77-6fhrk to node3
+  Normal  Pulled     3m34s  kubelet            Container image "nvrbckdown/flask-app:last-practice" already present on machine
+  Normal  Created    3m34s  kubelet            Created container flask-application
+  Normal  Started    3m33s  kubelet            Started container flask-application
+
+Name:             flask-application-85cdcfdb77-6m2x2
+Namespace:        farhod
+Priority:         0
+Service Account:  default
+Node:             node2/65.109.14.160
+Start Time:       Mon, 12 Feb 2024 15:08:32 +0000
+Labels:           app=flask-application
+                  pod-template-hash=85cdcfdb77
+Annotations:      cni.projectcalico.org/containerID: 32a704688601fd66a904660e63e435f92fb01dc2a14548d63f7bf30ddd7e9961
+                  cni.projectcalico.org/podIP: 10.233.66.160/32
+                  cni.projectcalico.org/podIPs: 10.233.66.160/32
+Status:           Running
+IP:               10.233.66.160
+IPs:
+  IP:           10.233.66.160
+Controlled By:  ReplicaSet/flask-application-85cdcfdb77
+Containers:
+  flask-application:
+    Container ID:   containerd://f2768f87b6c9d8bd4a081d442316d54eb759d80e0d71063141355e80176e7e04
+    Image:          nvrbckdown/flask-app:last-practice
+    Image ID:       docker.io/nvrbckdown/flask-app@sha256:ea3b5d9da60442d4d12a2fc0c02d993e836acc8df83e0b18035745a2eddc5510
+    Port:           5000/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Mon, 12 Feb 2024 15:08:32 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-5k5jc (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-5k5jc:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  3m34s  default-scheduler  Successfully assigned farhod/flask-application-85cdcfdb77-6m2x2 to node2
+  Normal  Pulled     3m35s  kubelet            Container image "nvrbckdown/flask-app:last-practice" already present on machine
+  Normal  Created    3m35s  kubelet            Created container flask-application
+  Normal  Started    3m35s  kubelet            Started container flask-application

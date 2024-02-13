@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: flask-application
+  name: flask-application
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-application
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: flask-application
+    spec:
+      containers:
+      - image: nvrbckdown/flask-app:last-practice
+        name: flask-application
+        resources:
+          limits:
+            cpu: 150m
+            memory: 128Mi
+          requests:
+            cpu: 75m
+            memory: 64Mi
+        ports:
+        - containerPort: 5000
+        resources: {}
+status: {}

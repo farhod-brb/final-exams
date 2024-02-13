@@ -1,0 +1,10 @@
+root@vm:~/lessons/final/task-01# kubectl run nginx1 --image nginx -l last=final -n farhod --dry-run=client -o yaml > nginx1.yaml
+root@vm:~/lessons/final/task-01# kubectl run nginx2 --image nginx -l last=final -n farhod --dry-run=client -o yaml > nginx2.yaml
+root@vm:~/lessons/final/task-01# kubectl apply -f nginx1.yaml -n farhod
+pod/nginx1 created
+root@vm:~/lessons/final/task-01# kubectl apply -f nginx2.yaml -n farhod
+pod/nginx2 created
+root@vm:~/lessons/final/task-01# kubectl get pods -n farhod
+NAME     READY   STATUS    RESTARTS   AGE
+nginx1   1/1     Running   0          44s
+nginx2   1/1     Running   0          29s

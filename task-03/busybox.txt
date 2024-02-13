@@ -1,0 +1,9 @@
+root@vm:~/lessons/final/task-03# kubectl run busybox --image=busybox --dry-run=client -o yaml > busybox.yaml
+root@vm:~/lessons/final/task-03# kubectl apply -f busybox.yaml -n farhod
+pod/busybox-pod created
+root@vm:~/lessons/final/task-03# kubectl get pods -n farhod
+NAME          READY   STATUS      RESTARTS      AGE
+busybox-pod   0/1     Completed   2 (23s ago)   26s
+nginx1        1/1     Running     0             28m
+nginx2        1/1     Running     0             28m
+root@vm:~/lessons/final/task-03# touch busybox.txt

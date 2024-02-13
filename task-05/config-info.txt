@@ -1,0 +1,38 @@
+root@vm:~/lessons/final/task-05# kubectl create configmap config-info --from-literal AUTHOR=farhod --from-literal EXEM_TYPE="YAKUNIY IMTIXON" --dry-run=client -o yam
+l > config-info.yaml
+root@vm:~/lessons/final/task-05# kubectl apply -f config-info.yaml 
+configmap/config-info created
+root@vm:~/lessons/final/task-05# kubectl get pods -n farhod
+NAME                                 READY   STATUS             RESTARTS         AGE
+busybox-pod                          0/1     CrashLoopBackOff   13 (3m49s ago)   45m
+flask-application-85cdcfdb77-6fhrk   1/1     Running            0                28m
+flask-application-85cdcfdb77-6m2x2   1/1     Running            0                28m
+nginx1                               1/1     Running            0                73m
+nginx2                               1/1     Running            0                73m
+root@vm:~/lessons/final/task-05# kubectl get deploy -n farhod
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+flask-application   2/2     2            2           29m
+root@vm:~/lessons/final/task-05# kubectl get configmap -n farhod
+NAME               DATA   AGE
+config-info        2      70s
+kube-root-ca.crt   1      86m
+root@vm:~/lessons/final/task-05# kubectl describe configmap config-info -n farhod
+Name:         config-info
+Namespace:    farhod
+Labels:       <none>
+Annotations:  <none>
+
+Data
+====
+AUTHOR:
+----
+farhod
+EXEM_TYPE:
+----
+YAKUNIY IMTIXON
+
+BinaryData
+====
+
+Events:  <none>
+root@vm:~/lessons/final/task-05# 

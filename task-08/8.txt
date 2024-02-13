@@ -1,0 +1,19 @@
+root@vm:~/lessons/final/task-08# kubectl describe service final-exam-np -n farhod
+Name:                     final-exam-np
+Namespace:                farhod
+Labels:                   app=final-exam
+Annotations:              <none>
+Selector:                 app=final-exam
+Type:                     NodePort
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.233.14.30
+IPs:                      10.233.14.30
+Port:                     <unset>  80/TCP
+TargetPort:               5000/TCP
+NodePort:                 <unset>  31002/TCP
+Endpoints:                <none>
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+root@vm:~/lessons/final/task-08# 

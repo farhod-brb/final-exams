@@ -1,0 +1,25 @@
+root@vm:~/lessons/final/task-02# kubectl get pods --all-namespaces -l last=final
+NAMESPACE    NAME     READY   STATUS             RESTARTS        AGE
+abdulaziz    nginx1   1/1     Running            0               18m
+abdulaziz    nginx2   1/1     Running            0               18m
+alisher      nginx1   1/1     Running            0               89s
+asilbek      nginx1   1/1     Running            0               18m
+asilbek      nginx2   1/1     Running            0               17m
+asrorbek     nginx1   1/1     Running            0               22m
+asrorbek     nginx2   1/1     Running            0               21m
+azizbek      nginx1   1/1     Running            0               18m
+azizbek      nginx2   1/1     Running            0               17m
+bekhzod      nginx1   1/1     Running            0               7m35s
+dilshod      nginx1   0/1     CrashLoopBackOff   6 (4m36s ago)   10m
+dilshod      nginx2   0/1     CrashLoopBackOff   3 (34s ago)     89s
+farhod       nginx1   1/1     Running            0               6m33s
+farhod       nginx2   1/1     Running            0               6m18s
+ismoil       nginx1   1/1     Running            0               15m
+ismoil       nginx2   1/1     Running            0               15m
+negmatov     nginx1   1/1     Running            0               17m
+negmatov     nginx2   1/1     Running            0               17m
+otabek       nginx1   1/1     Running            0               12m
+otabek       nginx2   1/1     Running            0               12m
+sirojiddin   nginx1   1/1     Running            0               18m
+sirojiddin   nginx2   1/1     Running            0               16m
+root@vm:~/lessons/final/task-02# touch label.txt
